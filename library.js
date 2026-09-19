@@ -1,4 +1,4 @@
-// const prompt = require('prompt-sync')();
+const prompt = require('prompt-sync')();
 const books = [
     {
         id: 1,
@@ -241,6 +241,7 @@ const books = [
         available: true
     }
 ];
+const borrowBooks = [];
 function menu () 
 {
     console.log("===== LIBRARY =====");
@@ -253,14 +254,38 @@ function menu ()
     console.log("7. Display borrowed books");
     console.log("8. Display available books");
     console.log("0. Exit");
+    let x=parseInt(prompt("Votre choix : "));
+    return x;
 };
 function allBooks ()
 {
     for(i=0; i<books.length; i++)
     {
-        console.log
-        console.log("book name :"+ books[i].title);
+        console.log("==== book "+[i+1]+" ===")
+        console.log("title :"+ books[i].title);
+        console.log("author :"+ books[i].author);
+        console.log("year :"+ books[i].year);
+        console.log("genre :"+ books[i].genre);
+        if(borrowBooks.includes(books[i].id))
+        {
+            console.log("not available");
+        }
+        else
+        {
+            console.log("available")
+        }
     }
 
 };
-allBooks();
+while(true)
+{
+    let x = menu();
+    if(x===1)
+    {
+        allBooks();
+    }
+    else if (x === 0) 
+    {
+        return;
+    };
+}
