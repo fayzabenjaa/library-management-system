@@ -277,12 +277,35 @@ function allBooks ()
     }
 
 };
+function searchBook()
+{
+    s=prompt("enter book title :");
+    let found = false;
+    for (i=0; i<books.length; i++)
+    {
+        if(s.toLowerCase() === books[i].title.toLowerCase())
+        {
+            console.log("the book is available :");
+            console.log(books[i]);
+            found = true;
+            break;
+        }
+    }
+    if (!found) 
+    {
+        console.log("book that you're searching is not available");
+    };
+};
 while(true)
 {
     let x = menu();
     if(x===1)
     {
         allBooks();
+    }
+    else if (x===2)
+    {
+        searchBook();
     }
     else if (x === 0) 
     {
