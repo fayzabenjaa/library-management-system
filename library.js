@@ -314,6 +314,24 @@ function addBook()
     console.log("new book :")
     console.log(newbook)
 };
+function removebook()
+{
+    d=parseInt(prompt("enter the id of the book :"));
+    let removed = false;
+    for(i=0; i<books.length; i++)
+    {
+        if(books[i].id === d)
+        {
+            books.splice(i, 1);
+            console.log("book was removed");
+            removed = true;
+        };
+    };
+    if (!removed)
+    {
+        console.log("the book is not available");
+    };
+};
 while(true)
 {
     let x = menu();
@@ -328,6 +346,10 @@ while(true)
     else if (x===3)
     {
         addBook();
+    }
+    else if (x===4)
+    {
+        removebook();
     }
     else if (x === 0) 
     {
