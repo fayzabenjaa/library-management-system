@@ -275,7 +275,6 @@ function allBooks ()
             console.log("available")
         }
     }
-
 };
 function searchBook()
 {
@@ -289,12 +288,31 @@ function searchBook()
             console.log(books[i]);
             found = true;
             break;
-        }
-    }
+        };
+    };
     if (!found) 
     {
         console.log("book that you're searching is not available");
     };
+};
+function addBook()
+{
+    let id= books.length+1;
+    let title=prompt("enter the title :");
+    let author=prompt("enter the author :");
+    let year=prompt("enter the year :");
+    let genre=prompt("enter the genre :");
+    let newbook = 
+    {
+        id: id,
+        title: title,
+        author: author,
+        year: year,
+        genre: genre,
+    };
+    books.push(newbook);
+    console.log("new book :")
+    console.log(newbook)
 };
 while(true)
 {
@@ -306,6 +324,10 @@ while(true)
     else if (x===2)
     {
         searchBook();
+    }
+    else if (x===3)
+    {
+        addBook();
     }
     else if (x === 0) 
     {
